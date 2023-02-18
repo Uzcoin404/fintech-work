@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.stat_cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+.card {
+    max-width: 420px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.card_header {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 30px;
+}
+
+.card_content {
+    padding: 0 25px 25px;
+}
+.card_title {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #1b1953;
+}
+.score_text {
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 41px;
+    color: #1b1953;
+    margin-bottom: 10px;
+}
+.score_progress {
+    position: relative;
+    width: 100%;
+    height: 15px;
+    background-color: #f7f8fa;
+    border-radius: 3px;
+}
+.score_progress::after {
+    content: "";
+    position: absolute;
+    width: 77%;
+    height: 100%;
+    background-color: #3cda73;
+    border-radius: 3px;
+}
+.card_scores {
+    margin-top: 25px;
+}
+.card_score_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card_score_item p {
+    font-size: 12px;
+    line-height: 15px;
+}
+.progress_blog {
+    display: flex;
+    align-items: center;
+}
+.card_score_item .score_progress {
+    width: 150px;
+    height: 10px;
+    border-radius: 0px 2px 2px 0;
+}
+.card_score_item .score_progress::after {
+    border-radius: 0px 2px 2px 0;
+    background-color: #006B3D;
+}
+.progress_text {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #54527e;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 15px;
+    color: #006b3d;
+}
