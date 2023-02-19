@@ -1,5 +1,5 @@
 import { Radar } from "react-chartjs-2";
-import { Chart as ChartJS } from "chart.js/auto";
+import { Chart as ChartJS, plugins } from "chart.js/auto";
 
 const data = {
     labels: [
@@ -58,13 +58,14 @@ export default function RadarChart() {
                 },
                 scales: {
                     r: {
-                        angleLines: {
-                            display: false,
-                        },
+                        angleLines: { color: "#736FF2" },
+                        grid: { color: "#736FF2", circular: true },
+                        ticks: { display: false },
                         suggestedMin: 0,
                         suggestedMax: 100,
                     },
                 },
+                responsive: true,
             }}
         ></Radar>
     );

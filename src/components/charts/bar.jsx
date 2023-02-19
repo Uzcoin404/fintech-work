@@ -6,58 +6,33 @@ const data = {
     datasets: [
         {
             label: "Strong sell",
-            data: [65, 59, 80, 81, 70],
-            backgroundColor: [
-                "#006B3D",
-                "#3CDA73",
-                "#FFCA2D",
-                "#FF7A49",
-                "#D3212C",
-            ],
+            data: [10, 9, 9, 3],
+            backgroundColor: "#006B3D",
+            barPercentage: 0.6,
         },
         {
             label: "Sell",
-            data: [65, 59, 80, 81, 70],
-            backgroundColor: [
-                "#006B3D",
-                "#3CDA73",
-                "#FFCA2D",
-                "#FF7A49",
-                "#D3212C",
-            ],
+            data: [14, 12, 15, 7],
+            backgroundColor: "#3CDA73",
+            barPercentage: 0.6,
         },
         {
             label: "Hold",
-            data: [65, 59, 80, 81, 70],
-            backgroundColor: [
-                "#006B3D",
-                "#3CDA73",
-                "#FFCA2D",
-                "#FF7A49",
-                "#D3212C",
-            ],
+            data: [8, 12, 13, 13],
+            backgroundColor: "#FFCA2D",
+            barPercentage: 0.6,
         },
         {
             label: "Buy",
-            data: [65, 59, 80, 81, 70],
-            backgroundColor: [
-                "#006B3D",
-                "#3CDA73",
-                "#FFCA2D",
-                "#FF7A49",
-                "#D3212C",
-            ],
+            data: [0, 2, 2, 2],
+            backgroundColor: "#FF7A49",
+            barPercentage: 0.6,
         },
         {
             label: "Strong buy",
-            data: [65, 59, 80, 81, 70],
-            backgroundColor: [
-                "#006B3D",
-                "#3CDA73",
-                "#FFCA2D",
-                "#FF7A49",
-                "#D3212C",
-            ],
+            data: [0, 1, 1, 0],
+            backgroundColor: "#D3212C",
+            barPercentage: 0.6,
         },
     ],
 };
@@ -67,6 +42,11 @@ export default function BarChart() {
         <Bar
             data={data}
             options={{
+                elements: {
+                    bar: {
+                        borderRadius: 5,
+                    },
+                },
                 plugins: {
                     legend: {
                         position: "bottom",
@@ -82,16 +62,26 @@ export default function BarChart() {
                     x: {
                         stacked: true,
                     },
+
                     y: {
-                        beginAtZero: true,
                         stacked: true,
+                        beginAtZero: true
                     },
-                },
-                interaction: {
-                    intersect: false,
                 },
                 responsive: true,
             }}
+            plugins={[
+                {
+                    beforeDraw: function (c) {
+                        var legends = c.legend.legendItems;
+                        legends[0].fillStyle = "#D3212C";
+                        legends[1].fillStyle = "#FF7A49";
+                        legends[2].fillStyle = "#FFCA2D";
+                        legends[3].fillStyle = "#3CDA73";
+                        legends[4].fillStyle = "#006B3D";
+                    },
+                },
+            ]}
         />
     );
 }
